@@ -30,6 +30,7 @@ const jobs = db.collection("jobs");
 
 app.get("/getsalaries",async(req,res,next)=>{
   try{
+    if(mongoose.connection){
     console.log("hi")
     const data=await jobs.aggregate([
         {
@@ -64,6 +65,9 @@ app.get("/getsalaries",async(req,res,next)=>{
       if(data){
         console.log(data);
         return res.json(data[0])
+      }}
+      else{
+        return res.json({message:"not connected to db"})
       }
   }
   catch(err){
