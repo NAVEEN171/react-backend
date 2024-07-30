@@ -28,9 +28,6 @@ app.listen(5000,()=>{
 const db = mongoose.connection.useDb("jobinformation");
 const jobs = db.collection("jobs");
 
-app.get("/",()=>{
-  console.log("deployed")
-})
 app.get("/getsalaries",async(req,res,next)=>{
   try{
     console.log("hi")
