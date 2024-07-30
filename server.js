@@ -61,13 +61,15 @@ app.get("/getsalaries",async(req,res,next)=>{
           }
         }
         
-      ]).toArray();
+      ]);
+      
       if(data){
+        data=await data.toArray()
         console.log(data);
         return res.json(data[0])
       }}
       else{
-        return res.json({message:"not connected to db"})
+        return res.json({message:"not connected to"})
       }
   }
   catch(err){
