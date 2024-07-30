@@ -32,7 +32,7 @@ app.get("/getsalaries",async(req,res,next)=>{
   try{
     if(mongoose.connection){
     console.log("hi")
-    const data=await jobs.aggregate([
+    let data=await jobs.aggregate([
         {
           $match: {
             "company_data.industries":{
